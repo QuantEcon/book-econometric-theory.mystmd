@@ -389,7 +389,7 @@ Here and below, the symbol $\PP_{\theta}$ indicates that we are computing probab
 
 Ideally, we would like $\beta(\theta) = 0$ when $\theta \in \Theta_0$, and $\beta(\theta) = 1$ when $\theta \notin \Theta_0$. In practice, this is difficult to achieve.
 
-As discussed above, we tend to be conservative in rejecting the null because we don't want to discard good theories. For this reason it is traditional to keep the probability of type I error small. Then, if our test tells us to reject the null, it's unlikely the null is true. Because of this, the standard procedure is to choose a small number $\alpha$ such as 0.05 or 0.01, and then adjust the test such that
+As discussed above, we tend to be conservative in rejecting the null because we don't want to discard good theories. For this reason it is traditional to keep the probability of type I error small. Then, if the null is true, our test is unlikely to reject it. Because of this, the standard procedure is to choose a small number $\alpha$ such as 0.05 or 0.01, and then adjust the test such that
 
 $$
 \beta(\theta) \leq \alpha

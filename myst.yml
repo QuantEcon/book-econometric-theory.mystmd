@@ -7,8 +7,26 @@ project:
     - fancy-lists.mjs
   title: "A Primer in Econometric Theory"
   subtitle: "Working draft"
+  description: >-
+    A quick course on modern econometric and statistical theory, with the
+    underlying ideas from probability and linear algebra, focusing on
+    foundations and general principles.
+  keywords:
+    - econometric theory
+    - statistical theory
+    - probability
+    - linear algebra
+    - regression
+    - asymptotic theory
+    - hypothesis testing
   authors:
     - name: John Stachurski
+      affiliations:
+        - National Graduate Institute for Policy Studies (GRIPS)
+  subject: Economics
+  venue:
+    title: QuantEcon
+    url: https://quantecon.org
   # The LaTeX source is private: the GitHub link points at the public repo
   # the site is published from, and there is no edit link.
   github: https://github.com/QuantEcon/book-econometric-theory.mystmd

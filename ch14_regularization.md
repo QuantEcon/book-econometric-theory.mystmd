@@ -723,7 +723,7 @@ Of course, we could divide the data into more than two sets. The extreme is to p
 - **end**
 - return the risk estimate $r := \frac{1}{N} \sum_{n=1}^N r_n$
 
-At each step inside the loop, we fit the model using all but the $n$th data point, and then predict the $n$th data point using the fitted model. The prediction quality is evaluated in terms of loss. Repeating this $n$ times, we produce an estimate of the risk using average loss. On an intuitive level, the procedure is attractive because we are using the available data intensively but still evaluating based on out-of-sample error.
+At each step inside the loop, we fit the model using all but the $n$th data point, and then predict the $n$th data point using the fitted model. The prediction quality is evaluated in terms of loss. Repeating this $N$ times, we produce an estimate of the risk using average loss. On an intuitive level, the procedure is attractive because we are using the available data intensively but still evaluating based on out-of-sample error.
 
 In terms of model selection, the idea is to run each model through the cross-validation procedure, and then select the one that produces the lowest value of $r$, the estimated risk. Let's illustrate this idea, by considering again the ridge regression procedure used in {ref}`ss-ssrr`. In this problem the set of models is indexed by $\lambda$, the regularization parameter in the ridge regression. The data set $\zdata$ is the set of points shown in [figures %s](#f-ridgeplot1)–[%s](#f-ridgeplot8). For each $\lambda$, the fitted function $\hat f_{\lambda}$ is
 
