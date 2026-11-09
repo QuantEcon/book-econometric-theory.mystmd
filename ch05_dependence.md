@@ -543,7 +543,7 @@ F(s_1,\ldots,s_N)
     = \prod_{n=1}^N F_n(s_n)
 $$ (eq-pdind)
 
-for all $(s_1, \ldots, s_N) \in \RR^N$, where $F$ is the CDF of $\boldx$ and $F_1, \ldots, F_N$ are the marginal CDFs . If the distribution of $\boldx$ is absolutely continuous we can also test independence via its density:
+for all $(s_1, \ldots, s_N) \in \RR^N$, where $F$ is the CDF of $\boldx$ and $F_1, \ldots, F_N$ are the marginal CDFs. If the distribution of $\boldx$ is absolutely continuous we can also test independence via its density:
 
 ````{prf:property}
 :label: fa-immd

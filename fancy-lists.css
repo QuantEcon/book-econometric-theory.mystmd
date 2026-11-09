@@ -61,3 +61,10 @@
 .fancy-list.list-upper-roman.delimiter-paren > ol > li::before {
   content: counter(list-item, upper-roman) ')';
 }
+
+/* Figures are drawn for a white page (TikZ and xfig diagrams, matplotlib
+   plots with transparent backgrounds). If a reader switches to the dark
+   theme, keep them on white so they stay legible. */
+html.dark article img {
+  background-color: #fff;
+}

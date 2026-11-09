@@ -155,7 +155,7 @@ As the bandwidth goes to zero, the kernel density becomes similar to the empiric
 Effect of changing the bandwidth
 ```
 
-The optimal bandwidth in terms of minimizing $L_p$ deviation depends on the the unknown density $f$. For example, if $f$ is smooth, then a relatively large bandwidth should be used. Of course $f$ is unknown. As such there are two standard approaches. One is to make assumptions on $f$ and choose the bandwidth accordingly. Another is to use cross-validation. For a review of both procedures see {cite}`scott2015multivariate`. We'll say more about cross-validation in the context of ridge regression below.
+The optimal bandwidth in terms of minimizing $L_p$ deviation depends on the unknown density $f$. For example, if $f$ is smooth, then a relatively large bandwidth should be used. Of course $f$ is unknown. As such there are two standard approaches. One is to make assumptions on $f$ and choose the bandwidth accordingly. Another is to use cross-validation. For a review of both procedures see {cite}`scott2015multivariate`. We'll say more about cross-validation in the context of ridge regression below.
 
 ### Theory
 
@@ -481,7 +481,7 @@ Under the OLS [assumptions %s](#a-lols)–[%s](#a-bols2), there exists a $\lambd
 
 The reduction in MSE over the least squares estimator occurs because, for some intermediate value of $\lambda$, the variance of $\hboldbeta_{\lambda}$ falls by more than enough to offset the bias induced by regularization.
 
-Note that, for suitable choice of $\lambda$, the ridge regression estimator $\hboldbeta_{\lambda}$ outperforms $\hboldbeta$ even though all of the classical OLS assumptions are valid. At the same time the right choice of $\lambda$ is a nontrivial problem. This problem falls under the heading of model selection, which is the topic treated in the next few sections.
+Note that, for suitable choice of $\lambda$, the ridge regression estimator $\hboldbeta_{\lambda}$ outperforms $\hboldbeta$ even though all of the classical OLS assumptions are valid. At the same time, the right choice of $\lambda$ is a nontrivial problem. This problem falls under the heading of model selection, which is the topic treated in the next few sections.
 
 #### Interpretation
 
@@ -723,7 +723,7 @@ Of course, we could divide the data into more than two sets. The extreme is to p
 - **end**
 - return the risk estimate $r := \frac{1}{N} \sum_{n=1}^N r_n$
 
-At each step inside the loop, we fit the model using all but the $n$th data point, and then predict the $n$th data point using the fitted model. The prediction quality is evaluated in terms of loss. Repeating this $n$ times, we produces estimate of the risk using average loss. On an intuitive level, the procedure is attractive because we are using the available data intensively but still evaluating based on out-of-sample error.
+At each step inside the loop, we fit the model using all but the $n$th data point, and then predict the $n$th data point using the fitted model. The prediction quality is evaluated in terms of loss. Repeating this $n$ times, we produce an estimate of the risk using average loss. On an intuitive level, the procedure is attractive because we are using the available data intensively but still evaluating based on out-of-sample error.
 
 In terms of model selection, the idea is to run each model through the cross-validation procedure, and then select the one that produces the lowest value of $r$, the estimated risk. Let's illustrate this idea, by considering again the ridge regression procedure used in {ref}`ss-ssrr`. In this problem the set of models is indexed by $\lambda$, the regularization parameter in the ridge regression. The data set $\zdata$ is the set of points shown in [figures %s](#f-ridgeplot1)–[%s](#f-ridgeplot8). For each $\lambda$, the fitted function $\hat f_{\lambda}$ is
 

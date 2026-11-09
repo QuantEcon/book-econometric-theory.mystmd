@@ -331,7 +331,7 @@ R(\ell)
         + \EE[ (f^*(\boldx) - \boldx^\T \boldb)^2 ]
 ```
 
-Hence the result will established if we can show that
+Hence the result will be established if we can show that
 
 $$
 \EE[ (f^*(\boldx) - \boldx^\T \boldb)^2 ]

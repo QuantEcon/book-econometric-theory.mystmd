@@ -80,7 +80,7 @@ for any $\bB$-measurable $h \colon \RR^N \to \RR$ such that $\EE |h(\boldx_t)|  
 
 Incidentally, a casual definition of ergodicity one often hears is that "cross sectional and time series averages coincide.\" What does that mean in the present context?
 
-To answer the question, imagine that $\boldx_t = x_t$ is a binary variable with $x_1 = 1$ if a given individual is currently employed and zero otherwise. In this case, $\frac{1}{T} \sum_{t=1}^T x_t$ is the fraction of time spent employed over the period $1, \ldots, T$. With $h(x)=x$, the right-hand side of {eq}`eq-ergodic` is $\EE x_t = \PP\{x_t = 1\}$, or the stationary probability of employment. If we observe time $t$ employment outcomes $x_t^1, \ldots, x_t^N$ of individuals $1, \ldots, N$ and, moreover, the individuals all follow the same model and are sufficient independent, the cross sectional average $\frac{1}{N} \sum_{n=1}^N x_t^n$ will also be close to $\PP\{x_t = 1\}$. Hence, with ergodicity and large samples, cross-sectional and time series averages (almost) coincide.
+To answer the question, imagine that $\boldx_t = x_t$ is a binary variable with $x_1 = 1$ if a given individual is currently employed and zero otherwise. In this case, $\frac{1}{T} \sum_{t=1}^T x_t$ is the fraction of time spent employed over the period $1, \ldots, T$. With $h(x)=x$, the right-hand side of {eq}`eq-ergodic` is $\EE x_t = \PP\{x_t = 1\}$, or the stationary probability of employment. If we observe time $t$ employment outcomes $x_t^1, \ldots, x_t^N$ of individuals $1, \ldots, N$ and, moreover, the individuals all follow the same model and are sufficiently independent, the cross sectional average $\frac{1}{N} \sum_{n=1}^N x_t^n$ will also be close to $\PP\{x_t = 1\}$. Hence, with ergodicity and large samples, cross-sectional and time series averages (almost) coincide.
 
 (ss-srsq)=
 ### Stochastic Recursive Sequences
@@ -435,7 +435,7 @@ In the scalar case, {eq}`eq-cdncg` follows from [example %s](#eg-ndat), since $q
 
 ### Marginal and Joint Distributions
 
-Let's note some features of the marginal and joint distributions of a Markov process. Consider our generic process $\boldx_{t+1} = G(\boldx_t, \boldw_{t+1})$ from {eq}`eq-amp`, where $\lL(\boldx_0) = P_0$ and $\{\boldw_t\}$ is IID on $\RR^M$ with common distribution $\Psi$. The **marginal distribution of the state vector** is just $\lL(\boldx_t)$. Since $\boldx_t$ is a well-defined random vector (see in particular {eq}`eq-xaft`), $\lL(\boldx_t)$ also well-defined, and we denote it in what follows by $P_t$. That is,
+Let's note some features of the marginal and joint distributions of a Markov process. Consider our generic process $\boldx_{t+1} = G(\boldx_t, \boldw_{t+1})$ from {eq}`eq-amp`, where $\lL(\boldx_0) = P_0$ and $\{\boldw_t\}$ is IID on $\RR^M$ with common distribution $\Psi$. The **marginal distribution of the state vector** is just $\lL(\boldx_t)$. Since $\boldx_t$ is a well-defined random vector (see in particular {eq}`eq-xaft`), $\lL(\boldx_t)$ is also well-defined, and we denote it in what follows by $P_t$. That is,
 
 ```{math}
 :enumerated: false

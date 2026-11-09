@@ -149,7 +149,7 @@ $$
 \hboldbeta := (\boldX^\T \boldX)^{-1} \boldX^\T \boldy
 $$ (eq-thelsqe2)
 
-Unlike [chapter 11](#c-reg), it's now understood as an estimator of the unknown parameter vector $\boldbeta$. In this context, $\hboldbeta$ is also called the **OLS estimator** of $\boldbeta$. Substituting $\boldy = \boldX \boldbeta + \boldu$ into {eq}`eq-thelsqe2` and cancel terms gives the useful comparison
+Unlike [chapter 11](#c-reg), it's now understood as an estimator of the unknown parameter vector $\boldbeta$. In this context, $\hboldbeta$ is also called the **OLS estimator** of $\boldbeta$. Substituting $\boldy = \boldX \boldbeta + \boldu$ into {eq}`eq-thelsqe2` and cancelling terms gives the useful comparison
 
 $$
 \hboldbeta = 
