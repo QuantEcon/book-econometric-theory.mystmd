@@ -448,8 +448,6 @@ for (K in 1:Kmax) {
 
 ```
 
-(You can obtain all code from the text at `johnstachurski.net/emet`.)
-
 To finish this section, let's draw a connection between [fact %s](#fa-rsqe), which says that the value of $R^2$ is at least weakly increasing in the number of right-hand side variables, and [fact %s](#fa-emprd). Suppose that $\boldx$ lists a large number of possible regressors. Let the hypothesis space be
 
 $$

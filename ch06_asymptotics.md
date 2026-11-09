@@ -403,7 +403,7 @@ for i in range(num_reps):
     outcomes[i] = np.sqrt(N / (2 * k)) * (xvec.mean() - k)
 
 # code to histogram outcomes and plot st.norm.pdf
-# see johnstachurski.net/emet.html
+# for comparison is omitted here
 ```
 
 ```{figure} figures/illus_clt.svg
@@ -870,7 +870,7 @@ From [fact %s](#fa-ssnac), we conclude that $y_N \tod \chi^2(K)$.
 ````
 
 
-[^1]: See `johnstachurski.net/emet` for code. A routine to draw from the negative binomial distribution is available from the *Distributions* package, but we've rolled our own for extra transparency.
+[^1]: A routine to draw from the negative binomial distribution is available from the *Distributions* package, but we've rolled our own for extra transparency.
 
 [^2]: In fact it can be shown that the sample mean is itself standard Cauchy for all $N$.
 

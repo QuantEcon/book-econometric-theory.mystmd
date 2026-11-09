@@ -511,7 +511,7 @@ $$ (eq-mla)
 
 for some small but positive $\lambda$. This second approach is called **Tikhonov regularization**. We are minimizing least squares plus a penalty term.
 
-Let's look at a simulation where $\boldA$ is chosen stochastically but with a tendency towards multicollinearity.[^3] To aid clarity, we first set $\boldb^* := (10,10,\ldots,10)^\T$, and then set $\boldc := \boldA \boldb^*$. By construction, $\boldb^*$ is a solution to the system $\boldA \boldb^* = \boldc$, and also the least squares solution.
+Let's look at a simulation where $\boldA$ is chosen stochastically but with a tendency towards multicollinearity. To aid clarity, we first set $\boldb^* := (10,10,\ldots,10)^\T$, and then set $\boldc := \boldA \boldb^*$. By construction, $\boldb^*$ is a solution to the system $\boldA \boldb^* = \boldc$, and also the least squares solution.
 
 ```{figure} figures/tikreg.svg
 :name: f-tikreg
@@ -548,7 +548,7 @@ We are back to the problem of choosing a suitable hypothesis space over which to
 
 The subset selection problem has been tackled by many researchers. Well-known approaches include the Akaike Information Criterion (AIC), the Bayesian Information Criterion (BIC), and Mallow's $C_p$ statistic. For example, Mallow's $C_p$ statistic consists of two terms, one increasing in the size of the empirical risk, and the other increasing in $|I|$, the size of the subset selected. The objective is to minimize the statistic, which involves trading off poor fit (large empirical risk) against excess complexity of the hypothesis space (large $|I|$).
 
-One of the problems with subset selection is that $K$ regressors means $2^K$ subsets to step through.[^4] To avoid this computational problem, one alternative is to use ridge regression. With ridge regression, the regularization term leads us to choose an estimate with smaller norm. What this means, in practice, is that the coefficients of less helpful regressors are driven towards zero, thereby "almost excluding" those regressors. While the model selection problem is not solved, it has been reduced to tuning a single parameter.
+One of the problems with subset selection is that $K$ regressors means $2^K$ subsets to step through.[^3] To avoid this computational problem, one alternative is to use ridge regression. With ridge regression, the regularization term leads us to choose an estimate with smaller norm. What this means, in practice, is that the coefficients of less helpful regressors are driven towards zero, thereby "almost excluding" those regressors. While the model selection problem is not solved, it has been reduced to tuning a single parameter.
 
 We can illustrate the idea by reconsidering the regression problem discussed in {ref}`ss-ermls`. {numref}`f-ofit1`–{numref}`f-ofit14` showed the fit we obtained by minimizing empirical risk over larger and larger hypothesis spaces. The hypothesis spaces were the sets $\pP_d$ of degree $d$ polynomials for different values of $d$. For each $d$ we minimized the empirical risk over $\pP_d$, which translates into solving
 
@@ -751,7 +751,7 @@ In this experiment, for each $\lambda$ in the grid `exp(seq(-22, 10, length=10))
 - **end**
 - return $r_{\lambda} := \frac{1}{N} \sum_{n=1}^N r_{\lambda, n}$
 
-The value of $\lambda$ producing the smallest estimated risk $r_{\lambda}$ is around 0.015. This is in fact very close to the value that minimizes the actual risk (see [figure %s](#f-ridge_risk)). The associated function $\hat f_{\lambda}$ is plotted in red in [figure %s](#f-cvbest), and indeed the fit is close. In this instance, our fully automated procedure is successful.[^5]
+The value of $\lambda$ producing the smallest estimated risk $r_{\lambda}$ is around 0.015. This is in fact very close to the value that minimizes the actual risk (see [figure %s](#f-ridge_risk)). The associated function $\hat f_{\lambda}$ is plotted in red in [figure %s](#f-cvbest), and indeed the fit is close. In this instance, our fully automated procedure is successful.
 
 ```{figure} figures/cvbest.svg
 :name: f-cvbest
@@ -776,7 +776,7 @@ Regarding implementations, one powerful and increasingly popular package for Bay
 ```{exercise}
 :label: ex-l1wd
 
-Let $\| \cdot \|_1$ denote the $L_1$ norm as defined in {eq}`eq-l1dist`. Show that $\| f - g \|_1$ is bounded over the set of all densities.[^6]
+Let $\| \cdot \|_1$ denote the $L_1$ norm as defined in {eq}`eq-l1dist`. Show that $\| f - g \|_1$ is bounded over the set of all densities.[^4]
 ```
 
 
@@ -790,14 +790,14 @@ Prove the triangle inequality in the case of $L_1$ (see {eq}`eq-lptri`).
 ```{exercise}
 :label: ex-ndl1
 
-Prove the claim in [example %s](#eg-ndl1).[^7]
+Prove the claim in [example %s](#eg-ndl1).[^5]
 ```
 
 
 ```{exercise}
 :label: ex-vnpde
 
-For the case $d=1$, show that $\hat f$ in {eq}`eq-npkde` is a density for every $N$, every $h > 0$ and every realization of the sample.[^8]
+For the case $d=1$, show that $\hat f$ in {eq}`eq-npkde` is a density for every $N$, every $h > 0$ and every realization of the sample.[^6]
 ```
 
 
@@ -974,16 +974,12 @@ The full rank assumption is not necessary because the matrix $\boldZ := \boldX^\
 
 [^1]: For a proof, see p. 39 of {cite}`devroye2012combinatorial`.
 
-[^2]: {numref}`f-one_dim_kde` is produced using `scikit-learn`. See `johnstachurski.net/emet` for code. In R, KDEs can be constructed from the `density` function. Try, for example, `plot(density(runif(200)))`.
+[^2]: {numref}`f-one_dim_kde` is produced using `scikit-learn`. In R, KDEs can be constructed from the `density` function. Try, for example, `plot(density(runif(200)))`.
 
-[^3]: Full details on the choice of $\boldA$ are given in the code for this chapter at `johnstachurski.net/emet`.
+[^3]: Remember {cite}`sala1997just` and his two million growth regressions?
 
-[^4]: Remember {cite}`sala1997just` and his two million growth regressions?
+[^4]: Hint: It is a basic property of integration that $g \leq h$ pointwise implies $\int g \leq \int h$.
 
-[^5]: The code to run this experiment can be found at `johnstachurski.net/emet`.
+[^5]: Hint: Use [fact %s](#fa-pinsk) and [exercise %s](#ex-normkl).
 
-[^6]: Hint: It is a basic property of integration that $g \leq h$ pointwise implies $\int g \leq \int h$.
-
-[^7]: Hint: Use [fact %s](#fa-pinsk) and [exercise %s](#ex-normkl).
-
-[^8]: Hint: Try a change-of-variables argument.
+[^6]: Hint: Try a change-of-variables argument.

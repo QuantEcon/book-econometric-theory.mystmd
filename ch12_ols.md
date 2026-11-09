@@ -162,7 +162,7 @@ $$
 \hat \sigma^2 := \frac{\rss}{N - K}
 $$ (eq-hatsig)
 
-While we can compute $\hboldbeta$ and $\hat \sigma^2$ directly using the expressions in {eq}`eq-thelsqe2` and {eq}`eq-hatsig`, in practice it's more common to pass them to a routine in a regression package. Here's an example that runs the gravity model regression {eq}`eq-gravity` on world trade data using Python. Like other worked examples, the full set of code and data for replicating these results can be found at `johnstachurski.net/emet`, along with references, details on the data source and the definitions of the variables.
+While we can compute $\hboldbeta$ and $\hat \sigma^2$ directly using the expressions in {eq}`eq-thelsqe2` and {eq}`eq-hatsig`, in practice it's more common to pass them to a routine in a regression package. Here's an example that runs the gravity model regression {eq}`eq-gravity` on world trade data using Python.
 
 First we import some Python libraries often used for statistics:
 
@@ -231,7 +231,7 @@ When we print the result the output agrees with the output in the table
 
     [-30.23498073   1.27825004   1.02865139  -1.34830012]    
 
-The expression for the $R^2$ in the table above is for $R_c^2$, as given in {eq}`eq-cecrs`. A verification is provided in the code available at `johnstachurski.net/emet`.
+The expression for the $R^2$ in the table above is for $R_c^2$, as given in {eq}`eq-cecrs`.
 
 {numref}`f-partial_reg_plot` shows a **partial regression plot** for the linear model just described. It is produced from the `result` object generated above via the commands
 
@@ -505,7 +505,7 @@ When will this norm be small? It will be so when $\col_k \boldX$ is "almost" a l
 
 This situation is sometimes referred to as **multicollinearity**.
 
-{numref}`f-betahat_var` gives an illustration of the effect of multicollinearity on the variance of OLS estimate $\hat \beta_2$. In this example $\boldX$ has two columns. They are related by $\col_2 \boldX = \delta \col_1 \boldX + (1 - \delta) \boldz$, where $\boldz$ is a vector of $N$ independent draws from the standard normal distribution. Larger $\delta$ means more dependence between $\col_1 \boldX$ and $\col_2 \boldX$. The true parameter is $\beta_2 = 1$. The figure shows the distribution of $\hat \beta_2$ for different values of $\delta$. The estimator $\hat \beta_2$ is unbiased but its variance increases with $\delta$. Further details on the simulation can be found at `johnstachurski.net/emet`. (The normal shape of the distribution is explained in the next section.)
+{numref}`f-betahat_var` gives an illustration of the effect of multicollinearity on the variance of OLS estimate $\hat \beta_2$. In this example $\boldX$ has two columns. They are related by $\col_2 \boldX = \delta \col_1 \boldX + (1 - \delta) \boldz$, where $\boldz$ is a vector of $N$ independent draws from the standard normal distribution. Larger $\delta$ means more dependence between $\col_1 \boldX$ and $\col_2 \boldX$. The true parameter is $\beta_2 = 1$. The figure shows the distribution of $\hat \beta_2$ for different values of $\delta$. The estimator $\hat \beta_2$ is unbiased but its variance increases with $\delta$. (The normal shape of the distribution is explained in the next section.)
 
 ```{figure} figures/betahat_var.svg
 :name: f-betahat_var
@@ -550,7 +550,7 @@ $$ (eq-dicof)
 
 Here $v_k (\boldX) :=$ the $(k,k)$th element of $(\boldX^\T \boldX)^{-1}$.
 
-{prf:ref}`t-dools` and the normality of the marginal distributions along the individual coefficients is illustrated in [figure %s](#f-dist_of_betahat). The central plot shows the contours of a density estimate that can be understood as a smoothed histogram based on simulated observations of $\hboldbeta$ (see {ref}`s-panp` for details on these density estimates). Each observation $\hboldbeta = (\hat \beta_1, \hat \beta_2)$ is obtained by fitting the regression model $y_n = \beta_1 + \beta_2 x_n + u_n$, where $\beta_1 = 0.5$, $\beta_2 = 1$ and $u_n$ is standard normal. The sample size for each fit is $N=250$. The univariate distributions on the top and right are univariate density estimates based on the observations of $\hat \beta_1$ and $\hat \beta_2$ respectively.[^1]
+{prf:ref}`t-dools` and the normality of the marginal distributions along the individual coefficients is illustrated in [figure %s](#f-dist_of_betahat). The central plot shows the contours of a density estimate that can be understood as a smoothed histogram based on simulated observations of $\hboldbeta$ (see {ref}`s-panp` for details on these density estimates). Each observation $\hboldbeta = (\hat \beta_1, \hat \beta_2)$ is obtained by fitting the regression model $y_n = \beta_1 + \beta_2 x_n + u_n$, where $\beta_1 = 0.5$, $\beta_2 = 1$ and $u_n$ is standard normal. The sample size for each fit is $N=250$. The univariate distributions on the top and right are univariate density estimates based on the observations of $\hat \beta_1$ and $\hat \beta_2$ respectively.
 
 ```{figure} figures/dist_of_betahat.svg
 :name: f-dist_of_betahat
@@ -830,7 +830,7 @@ Q_1 =
         = (\sigma^{-1} \boldu)^\T (\boldP - \boldP_1) (\sigma^{-1} \boldu)
 ```
 
-It is an exercise to show that $(\boldP - \boldP_1)$ is symmetric and idempotent.[^2] Hence
+It is an exercise to show that $(\boldP - \boldP_1)$ is symmetric and idempotent.[^1] Hence
 
 ```{math}
 :enumerated: false
@@ -1001,7 +1001,7 @@ If we use this expression in place of the usual variance estimate $\hat \sigma^2
 ### Bias
 In {ref}`ss-heter` we considered what happens when [assumption %s](#a-bols2) (spherical errors) fails. What about the other OLS assumptions? {prf:ref}`a-fr2` (full rank) is fairly benign. {prf:ref}`a-lols` and {prf:ref}`a-bols` (linearity and exogeneity) are more problematic. Let's have a look at how they might fail and the consequences.
 
-The linearity assumption $y_n = \boldx_n^\T \, \boldbeta + u_n$ is fundamental. If we replace it with a more general assumption such as $y_n = f(\boldx_n) + u_n$ for some arbitrary function $f$, then OLS theory falls apart. For example, we cannot even *ask* if the OLS estimator is unbiased because $\boldbeta$ has vanished. There is no parameter vector for $\hboldbeta$ to estimate.[^3]
+The linearity assumption $y_n = \boldx_n^\T \, \boldbeta + u_n$ is fundamental. If we replace it with a more general assumption such as $y_n = f(\boldx_n) + u_n$ for some arbitrary function $f$, then OLS theory falls apart. For example, we cannot even *ask* if the OLS estimator is unbiased because $\boldbeta$ has vanished. There is no parameter vector for $\hboldbeta$ to estimate.[^2]
 
 The remaining assumption we need to consider is exogenous regressors. What happens if all other OLS assumptions hold but [assumption %s](#a-bols) fails?
 
@@ -1146,7 +1146,7 @@ $$ (eq-ivls2)
 
 In the preceding discussion, the analogy with GLS was not exact. (Direct application of GLS to {eq}`eq-olami` would require that $\EE[ \boldw \given \boldZ^\T \boldX] = \boldzero$ rather than $\EE[ \boldw \given \boldZ] = \boldzero$.) As a consequence we cannot claim unbiasedness and other properties by appealing to the GLS theory. Indeed $\hboldbeta_{{\rm IVLS}}$ is, in general, biased (see [ex. %s](#ex-ivib)).
 
-At the same time, the bias is typically smaller than OLS and vanishes asymptotically (see, e.g., §8.3 of {cite:author}`davidson2004econometric` {cite:year}`davidson2004econometric`). {numref}`f-iv_example` gives an illustration. This figure corresponds to OLS and IVLS estimates of $\beta$ in $y = x \beta + u$ when $\beta=10$, $z$ is drawn independently of $u$, and $x$ is set equal to $\alpha z + (1 - \alpha) u$. Thus $z$ is exogenous and $x$ is a mixture of $z$ and $u$. The value $\alpha$ is a constant. In the simulation, $\alpha$ is set to $0.8$, so $z$ is a relatively strong instrument. The histograms are observations of the two estimators over 25,000 repetitions, each one having a sample size of $250$. IV provides a much better estimator of $\beta$ in this case.[^4]
+At the same time, the bias is typically smaller than OLS and vanishes asymptotically (see, e.g., §8.3 of {cite:author}`davidson2004econometric` {cite:year}`davidson2004econometric`). {numref}`f-iv_example` gives an illustration. This figure corresponds to OLS and IVLS estimates of $\beta$ in $y = x \beta + u$ when $\beta=10$, $z$ is drawn independently of $u$, and $x$ is set equal to $\alpha z + (1 - \alpha) u$. Thus $z$ is exogenous and $x$ is a mixture of $z$ and $u$. The value $\alpha$ is a constant. In the simulation, $\alpha$ is set to $0.8$, so $z$ is a relatively strong instrument. The histograms are observations of the two estimators over 25,000 repetitions, each one having a sample size of $250$. IV provides a much better estimator of $\beta$ in this case.
 
 ```{figure} figures/iv_example.svg
 :name: f-iv_example
@@ -1228,7 +1228,7 @@ Prove [theorem %s](#t-olsev).
 ```{exercise}
 :label: ex-ioes
 
-Prove [fact %s](#fa-ioes).[^5]
+Prove [fact %s](#fa-ioes).[^3]
 ```
 
 
@@ -1302,7 +1302,7 @@ Verify the expression for $x_n$ in {eq}`eq-exfy`.
 ```{exercise}
 :label: ex-ch12_ols-auto-1
 
-Obtain [fact %s](#fa-ctdr) as a special case of [theorem %s](#t-ttest).[^6]
+Obtain [fact %s](#fa-ctdr) as a special case of [theorem %s](#t-ttest).[^4]
 ```
 
 
@@ -1835,14 +1835,10 @@ By [theorem %s](#t-projon), the matrix that implements orthogonal projection ont
 ````
 
 
-[^1]: The code for the simulation can be found at `johnstachurski.net/emet`.
+[^1]: Hint: See [fact %s](#fa-subsub).
 
-[^2]: Hint: See [fact %s](#fa-subsub).
+[^2]: It is an interesting habit of economists to quibble endlessly about whether someone's estimators are biased, even when their models are wildly speculative in terms of specific functional forms. (For example, do we really believe that log GDP per capita is a linear function of various measures of institutional quality and an Africa dummy, say, or even that this is a close depiction of reality? If not, what exactly does it mean to say that $\hboldbeta$ is biased?)
 
-[^3]: It is an interesting habit of economists to quibble endlessly about whether someone's estimators are biased, even when their models are wildly speculative in terms of specific functional forms. (For example, do we really believe that log GDP per capita is a linear function of various measures of institutional quality and an Africa dummy, say, or even that this is a close depiction of reality? If not, what exactly does it mean to say that $\hboldbeta$ is biased?)
+[^3]: Hint: Use [fact %s](#fa-poci).
 
-[^4]: For code and full details of the simulation, see `johnstachurski.net/emet`.
-
-[^5]: Hint: Use [fact %s](#fa-poci).
-
-[^6]: Hint: Consider the regression model $\boldy = \boldone \beta + \boldu$.
+[^4]: Hint: Consider the regression model $\boldy = \boldone \beta + \boldu$.

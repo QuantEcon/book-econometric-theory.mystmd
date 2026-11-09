@@ -1209,7 +1209,7 @@ $$ (eq-betapost2)
 ````
 
 
-{numref}`f-beta_bayes` shows evolution of the posterior density {eq}`eq-betapost2` in a simulation. The prior is set to Beta$(3, 5)$. The true payout probability is $\theta_0 = 0.7$. Despite the poor prior, the data shift probability mass towards $\theta_0$. See `johnstachurski.net/emet` for code.
+{numref}`f-beta_bayes` shows evolution of the posterior density {eq}`eq-betapost2` in a simulation. The prior is set to Beta$(3, 5)$. The true payout probability is $\theta_0 = 0.7$. Despite the poor prior, the data shift probability mass towards $\theta_0$.
 
 ```{figure} figures/beta_bayes.svg
 :name: f-beta_bayes
@@ -1423,7 +1423,7 @@ Since $\{x_n\}$ is IID, $\lL(x_{n+1}) = f$ and $g$ is a density, we have
 
 [^2]: See, for example, §2.4 of {cite}`friedman2001elements`.
 
-[^3]: The risk $R(\hat f_d)$ is evaluated by substituting $\hat f_d$ into the expression for $R$ in {eq}`eq-rminpoly`. You can find the code at `johnstachurski.net/emet`.
+[^3]: The risk $R(\hat f_d)$ is evaluated by substituting $\hat f_d$ into the expression for $R$ in {eq}`eq-rminpoly`.
 
 [^4]: The scare quotes on "unlikely\" are just a reminder that our distribution is absolutely continuous and hence all individual outcomes $s \in \RR$ have probability zero. When we say that an outcome $x$ is unlikely, we mean that there is little probability mass in the neighborhood of $x$.
 

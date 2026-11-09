@@ -578,7 +578,7 @@ let $\beta_N(\Phi)$ be the value of the power function when the null hypothesis 
 
 Hence {eq}`eq-asmposa` is verified, and the test is asymptotically of size $\alpha$. Notice how the construction of the test inverts the confidence set in {ref}`ss-ane`.
 
-The Nikkei data set used here has 364 observations. The value of the test statistic $\sqrt{N}\sup_{s \in \RR} |\hat F_N(s) - \Phi(s)|$ is 1.548. If $\alpha = 0.05$, then, as shown in {ref}`ss-ane`, the critical value $k_{1-\alpha}$ is 1.36. Hence the test statistic exceeds the critical value, and the null hypothesis is rejected. See `johnstachurski.net/emet` for the code.
+The Nikkei data set used here has 364 observations. The value of the test statistic $\sqrt{N}\sup_{s \in \RR} |\hat F_N(s) - \Phi(s)|$ is 1.548. If $\alpha = 0.05$, then, as shown in {ref}`ss-ane`, the critical value $k_{1-\alpha}$ is 1.36. Hence the test statistic exceeds the critical value, and the null hypothesis is rejected.
 
 While the departure from normality is not easy to see in [figure %s](#f-nikkei_ecdf), it can be seen more clearly in a comparison of the histogram and density, as in [figure %s](#f-nikkei_hist). The data are noticeably more peaked and there is evidence of heavy tails.
 

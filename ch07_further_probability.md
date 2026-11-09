@@ -472,7 +472,7 @@ $$
     \sigma_{t+1}^2 = a^2 \sigma_t^2 + c^2
 $$ (eq-msse)
 
-You can verify this by taking expectations and variances on both side of {eq}`eq-sgar1`. For code replicating the figure, see `johnstachurski.net/emet`.
+You can verify this by taking expectations and variances on both side of {eq}`eq-sgar1`.
 
 ```{figure} figures/norm_den_seq.svg
 :name: f-norm_den_seq
@@ -1374,7 +1374,7 @@ function rw_metropolis(pi_density, T, init=0, sigma=1)
 end
 ```
 
-{numref}`f-rw_metropolis` shows a histogram of $10^6$ draws generated from this algorithm when $\pi$ is the beta distribution with parameters $(2, 5)$. The black line is the target density. This is just a toy example, since routines for sampling from beta distributions are readily available. You can experiment with the code at `johnstachurski.net/emet`.
+{numref}`f-rw_metropolis` shows a histogram of $10^6$ draws generated from this algorithm when $\pi$ is the beta distribution with parameters $(2, 5)$. The black line is the target density. This is just a toy example, since routines for sampling from beta distributions are readily available.
 
 ```{figure} figures/rw_metropolis.svg
 :name: f-rw_metropolis

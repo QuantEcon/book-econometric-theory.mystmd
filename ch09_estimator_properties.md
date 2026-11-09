@@ -261,7 +261,7 @@ def bootstrap(xo, stat, M):
     return T_b
 ```
 
-{numref}`f-bootstrap_hist` shows a histogram of observations from a bootstrap distribution generated using the Julia code above. The underlying sample $x^o_1, \ldots, x^o_N$ was created using $N=200$ IID draws from the $\lN(0, 1)$ distribution. The statistic used was the sample median. The density shown in the same figure is a numerical approximation of the true sampling distribution of the median over $200$ IID draws from the $\lN(0, 1)$ distribution. The (population) median of the $\lN(0, 1)$ distribution is 1. See `johnstachurski.net/emet` for the code.
+{numref}`f-bootstrap_hist` shows a histogram of observations from a bootstrap distribution generated using the Julia code above. The underlying sample $x^o_1, \ldots, x^o_N$ was created using $N=200$ IID draws from the $\lN(0, 1)$ distribution. The statistic used was the sample median. The density shown in the same figure is a numerical approximation of the true sampling distribution of the median over $200$ IID draws from the $\lN(0, 1)$ distribution. The (population) median of the $\lN(0, 1)$ distribution is 1.
 
 ```{figure} figures/bootstrap_hist.svg
 :name: f-bootstrap_hist
@@ -286,7 +286,7 @@ This isn't a proper definition because we haven't specified *which* estimate of 
 
 ```{prf:example}
 
-{numref}`f-firms_median` shows a histogram of draws from the bootstrap distribution of the median applied to 2,118 observations of US firm sizes by sales, as measured by 2013 Compustat data. Values are in millions of US dollars. The median of the sample itself is 269.9. The sample standard deviation of this particular set of bootstrap draws is 25.4. See `johnstachurski.net/emet` for the code.
+{numref}`f-firms_median` shows a histogram of draws from the bootstrap distribution of the median applied to 2,118 observations of US firm sizes by sales, as measured by 2013 Compustat data. Values are in millions of US dollars. The median of the sample itself is 269.9. The sample standard deviation of this particular set of bootstrap draws is 25.4.
 ```
 
 
@@ -635,7 +635,7 @@ We can get some of the intuition from simulation. In our simulation we set $K=20
 Error vectors for the two estimators
 ```
 
-{numref}`f-stein` shows a typical realization. The bars in the top panel are the elements of the vector $\bar \boldx_N - \boldmu$, which records the errors for the sample mean estimator $\bar \boldx_N$. Those in the lower panel correspond to the errors of the James–Stein estimator. These are noticeably downward biased and also noticeably smaller than the errors of the sample mean estimator. This is reflected in the SSE values in the top left of each panel, which give the sum of squared errors (i.e., the squared norms of the error vectors). The SSE for the sample mean estimator is nearly twice as large.[^1]
+{numref}`f-stein` shows a typical realization. The bars in the top panel are the elements of the vector $\bar \boldx_N - \boldmu$, which records the errors for the sample mean estimator $\bar \boldx_N$. Those in the lower panel correspond to the errors of the James–Stein estimator. These are noticeably downward biased and also noticeably smaller than the errors of the sample mean estimator. This is reflected in the SSE values in the top left of each panel, which give the sum of squared errors (i.e., the squared norms of the error vectors). The SSE for the sample mean estimator is nearly twice as large.
 
 (ss-ape)=
 ### Asymptotic Properties
@@ -1051,14 +1051,14 @@ There are many excellent general texts on statistical inference, including {cite
 ```{exercise}
 :label: ex-sn2e
 
-Prove {eq}`eq-sn2e` in [example %s](#eg-svic).[^2]
+Prove {eq}`eq-sn2e` in [example %s](#eg-svic).[^1]
 ```
 
 
 ```{exercise}
 :label: ex-ismsv
 
-Confirm [fact %s](#fa-ismsv).[^3]
+Confirm [fact %s](#fa-ismsv).[^2]
 ```
 
 
@@ -1093,7 +1093,7 @@ As in [ex. %s](#ex-cwwn), let $x_1,\ldots,x_N$ be IID draws from $U[0,\theta]$, 
 \hat \mu := \frac{N+1}{2N} \cdot \max\{x_1, \ldots, x_N\}
 ```
 
-is an unbiased estimator of $\mu$.[^4]
+is an unbiased estimator of $\mu$.[^3]
 ````
 
 
@@ -1389,10 +1389,8 @@ Differentiating with respect to $a$, setting the result to zero, and using the f
 ````
 
 
-[^1]: See `johnstachurski.net/emet` for the code that generates these results.
+[^1]: Hint: Review [example %s](#eg-pvonesr).
 
-[^2]: Hint: Review [example %s](#eg-pvonesr).
+[^2]: Hints: Look at [fact %s](#fa-poci) and the proofs following [example %s](#eg-sdq).
 
-[^3]: Hints: Look at [fact %s](#fa-poci) and the proofs following [example %s](#eg-sdq).
-
-[^4]: Hint: If you're stuck, review [ex. %s](#ex-ostatu) and its solution.
+[^3]: Hint: If you're stuck, review [ex. %s](#ex-ostatu) and its solution.
