@@ -1,0 +1,266 @@
+version: 1
+project:
+  # (i)/(a) list markers: the fork parses them (qe-v8+), book-theme renders
+  # every ordered list as 1., 2., ...; this plugin + fancy-lists.css draw the
+  # print markers. Copied from QuantEcon/book-dp2's mystmd/.
+  plugins:
+    - fancy-lists.mjs
+  title: "A Primer in Econometric Theory"
+  subtitle: "Working draft"
+  authors:
+    - name: John Stachurski
+  # The LaTeX source is private: the GitHub link points at the public repo
+  # the site is published from, and there is no edit link.
+  github: https://github.com/QuantEcon/book-econometric-theory.mystmd
+  edit_url: null
+  # The working-draft PDF, built from ../et.tex and copied in by
+  # scripts/publish.sh.
+  downloads:
+    - file: primer-econometric-theory-draft.pdf
+      title: Working draft (PDF)
+  bibliography:
+    - references.bib
+  # Book-mode numbering with Roman-numbered parts, as in print: chapter 1
+  # (Introduction) stands before Part I, and the appendix is chapter 15 in
+  # Part IV. Each theorem-like environment has its own counter, numbered
+  # within sections (mpreamb.tex: \newtheorem{...}{...}[section]), and so do
+  # exercises.
+  numbering:
+    book:
+      enabled: true
+    chapters:
+      label: "Chapter %s"
+    proof:
+      scope: section
+    exercise:
+      scope: section
+    # Facts are {prf:property} (MyST has no "fact" kind); show them as in print.
+    # Listings and algorithms are numbered through the book in print.
+    code:
+      continue: true
+      template: "Listing %s"
+    proof:algorithm:
+      continue: true
+    proof:property:
+      label: "Fact %s"
+      template: "Fact %s"
+  toc:
+    - file: index.md
+    - title: Front Matter
+      section: frontmatter
+      children:
+        - file: preface.md
+          title: Preface
+        - file: common_symbols.md
+          title: Common Symbols
+    - title: Introduction
+      section: chapters
+      children:
+        - file: ch01_introduction.md
+          title: Introduction
+    - title: Background
+      section: parts
+      children:
+        - file: ch02_vector_spaces.md
+          title: Vector Spaces
+        - file: ch03_linear_algebra.md
+          title: Linear Algebra and Matrices
+        - file: ch04_probability.md
+          title: Foundations of Probability
+        - file: ch05_dependence.md
+          title: Modeling Dependence
+        - file: ch06_asymptotics.md
+          title: Asymptotics
+        - file: ch07_further_probability.md
+          title: Further Topics in Probability
+    - title: Foundations of Statistics
+      section: parts
+      children:
+        - file: ch08_estimators.md
+          title: Estimators
+        - file: ch09_estimator_properties.md
+          title: Properties of Estimators
+        - file: ch10_intervals_tests.md
+          title: Confidence Intervals and Tests
+    - title: Econometric Models
+      section: parts
+      children:
+        - file: ch11_regression.md
+          title: Regression
+        - file: ch12_ols.md
+          title: Ordinary Least Squares
+        - file: ch13_large_samples.md
+          title: Large Samples and Dependence
+        - file: ch14_regularization.md
+          title: Regularization
+    - title: Appendix
+      section: parts
+      children:
+        - file: appendix.md
+          title: Appendix
+  # Generated from ../mpreamb.tex, with KaTeX substitutes where it lacks the
+  # LaTeX (\mathbbm, \sc small caps, stackengine, \nobreak).
+  math:
+    '\T': '{\intercal}'
+    '\leq': '\leqslant'
+    '\geq': '\geqslant'
+    '\diff': '\mathop{}\!\mathrm{d}'
+    '\argmax': '\operatorname*{argmax}'
+    '\argmin': '\operatorname*{argmin}'
+    '\st': '\;\mathrm{s.t.}\;'
+    '\setntn': '\{ #1 : #2 \}'
+    '\fore': '\therefore \quad'
+    '\tod': '\stackrel { d } {\to}'
+    '\tow': '\stackrel { w } {\to}'
+    '\toprob': '\stackrel { p } {\to}'
+    '\toms': '\stackrel { ms } {\to}'
+    '\eqdist': '\stackrel{d}{=}'
+    '\iidsim': '\stackrel{\text{\tiny IID}}{\sim}'
+    '\1': '{1\!\!1}'
+    '\dee': '\,\mathrm{d}'
+    '\given': '\, | \,'
+    '\la': '\langle'
+    '\ra': '\rangle'
+    '\rho': '\varrho'
+    '\htau': '\hat \tau'
+    '\hgamma': '\hat \gamma'
+    '\boldx': '{\mathbf x}'
+    '\boldu': '{\mathbf u}'
+    '\boldv': '{\mathbf v}'
+    '\boldw': '{\mathbf w}'
+    '\boldy': '{\mathbf y}'
+    '\boldb': '{\mathbf b}'
+    '\bolda': '{\mathbf a}'
+    '\boldc': '{\mathbf c}'
+    '\boldi': '{\mathbf i}'
+    '\bolde': '{\mathbf e}'
+    '\bolds': '{\mathbf s}'
+    '\boldp': '{\mathbf p}'
+    '\boldq': '{\mathbf q}'
+    '\boldt': '{\mathbf t}'
+    '\boldz': '{\mathbf z}'
+    '\boldzero': '{\mathbf 0}'
+    '\boldone': '{\mathbf 1}'
+    '\boldalpha': '{\boldsymbol \alpha}'
+    '\boldbeta': '{\boldsymbol \beta}'
+    '\boldgamma': '{\boldsymbol \gamma}'
+    '\boldtheta': '{\boldsymbol \theta}'
+    '\boldxi': '{\boldsymbol \xi}'
+    '\boldtau': '{\boldsymbol \tau}'
+    '\boldepsilon': '{\boldsymbol \epsilon}'
+    '\boldmu': '{\boldsymbol \mu}'
+    '\boldSigma': '{\boldsymbol \Sigma}'
+    '\boldOmega': '{\boldsymbol \Omega}'
+    '\boldPhi': '{\boldsymbol \Phi}'
+    '\boldLambda': '{\boldsymbol \Lambda}'
+    '\boldphi': '{\boldsymbol \phi}'
+    '\Sigmax': '{\boldsymbol \Sigma_{\boldx}}'
+    '\Sigmau': '{\boldsymbol \Sigma_{\boldu}}'
+    '\Sigmaxinv': '{\boldsymbol \Sigma_{\boldx}^{-1}}'
+    '\Sigmav': '{\boldsymbol \Sigma_{\boldv \boldv}}'
+    '\hboldx': '\hat {\mathbf x}'
+    '\hboldy': '\hat {\mathbf y}'
+    '\hboldb': '\hat {\mathbf b}'
+    '\hboldu': '\hat {\mathbf u}'
+    '\hboldtheta': '\hat {\boldsymbol \theta}'
+    '\hboldtau': '\hat {\boldsymbol \tau}'
+    '\hboldmu': '\hat {\boldsymbol \mu}'
+    '\hboldbeta': '\hat {\boldsymbol \beta}'
+    '\hboldgamma': '\hat {\boldsymbol \gamma}'
+    '\hboldSigma': '\hat {\boldsymbol \Sigma}'
+    '\boldA': '\mathbf A'
+    '\boldB': '\mathbf B'
+    '\boldC': '\mathbf C'
+    '\boldD': '\mathbf D'
+    '\boldI': '\mathbf I'
+    '\boldL': '\mathbf L'
+    '\boldM': '\mathbf M'
+    '\boldP': '\mathbf P'
+    '\boldQ': '\mathbf Q'
+    '\boldR': '\mathbf R'
+    '\boldX': '\mathbf X'
+    '\boldU': '\mathbf U'
+    '\boldV': '\mathbf V'
+    '\boldW': '\mathbf W'
+    '\boldY': '\mathbf Y'
+    '\boldZ': '\mathbf Z'
+    '\bSigmaX': '{\boldsymbol \Sigma_{\hboldbeta}}'
+    '\hbSigmaX': '\mathbf{\hat \Sigma_{\hboldbeta}}'
+    '\RR': '\mathbb{R}'
+    '\CC': '\mathbb{C}'
+    '\NN': '\mathbb{N}'
+    '\PP': '\mathbb{P}'
+    '\EE': '\mathbb{E}\,'
+    '\EEP': '\mathbb{E}_P\,'
+    '\ZZ': '\mathbb{Z}'
+    '\QQ': '\mathbb{Q}'
+    '\XX': '\mathcal X'
+    '\aA': '\mathcal A'
+    '\fF': '\mathscr F'
+    '\bB': '\mathscr B'
+    '\iI': '\mathscr I'
+    '\rR': '\mathscr R'
+    '\dD': '\mathcal D'
+    '\lL': '\mathcal L'
+    '\llL': '\mathcal{H}_{\ell}'
+    '\gG': '\mathcal G'
+    '\hH': '\mathcal H'
+    '\nN': '\mathrm{N}'
+    '\lN': '\mathrm{LN}'
+    '\pP': '\mathscr P'
+    '\qQ': '\mathscr Q'
+    '\xX': '\mathcal X'
+    '\ddD': '\mathscr D'
+    '\risk': '\mathcal R'
+    '\Remp': 'R_{\mathrm{emp}}'
+    '\ess': '\mathrm{ESS}'
+    '\tss': '\mathrm{TSS}'
+    '\rss': '\mathrm{RSS}'
+    '\rssr': '\mathrm{RSSR}'
+    '\ussr': '\mathrm{USSR}'
+    '\zdata': '\mathbf{z}_{\mathcal D}'
+    '\Pdata': 'P_{\mathcal D}'
+    '\Pdatatheta': 'P^{\mathcal D}_{\theta}'
+    '\Zdata': 'Z_{\mathcal D}'
+    '\e': '\mathbb{E}[{#1}]'
+    '\p': '\mathbb{P}({#1})'
+    '\inner': '\left\langle{#1}\right\rangle'
+    '\cl': '\operatorname{cl}'
+    '\interior': '\operatorname{int}'
+    '\Prob': '\operatorname{Prob}'
+    '\determinant': '\operatorname{det}'
+    '\trace': '\operatorname{trace}'
+    '\sgn': '\operatorname{sgn}'
+    '\Span': '\operatorname{span}'
+    '\diag': '\operatorname{diag}'
+    '\proj': '\operatorname{proj}'
+    '\rank': '\operatorname{rank}'
+    '\cov': '\operatorname{cov}'
+    '\corr': '\operatorname{corr}'
+    '\var': '\operatorname{var}'
+    '\mse': '\operatorname{mse}'
+    '\se': '\operatorname{se}'
+    '\row': '\operatorname{row}'
+    '\col': '\operatorname{col}'
+    '\range': '\operatorname{rng}'
+    '\kernel': '\operatorname{null}'
+    '\dimension': '\operatorname{dim}'
+    '\bias': '\operatorname{bias}'
+    '\colspace': '\operatorname{colspace}'
+    '\mathbbm': '\mathbb{#1}'
+    '\red': '\textcolor{red}{#1}'
+    '\obullet': '\overset{\bullet}{#1}'
+    '\ocirc': '\overset{\circ}{#1}'
+
+site:
+  template: book-theme
+  options:
+    style: fancy-lists.css
+    # base_url comes from BASE_URL in the deploy workflow
+  parts:
+    footer: |
+      © John Stachurski. This is a working draft of *A Primer in Econometric
+      Theory*; the final version is published by
+      [MIT Press](https://mitpress.mit.edu/9780262034906/a-primer-in-econometric-theory/)
+      (2016). Available for indexing, text and data mining, and AI model
+      training, with attribution.
