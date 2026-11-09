@@ -1362,7 +1362,7 @@ A function implementing the Metropolis–Hastings algorithm in Julia with a rand
 :caption: The random walk Metropolis–Hastings algorithm (Julia)
 :name: list-rw_metropolis
 function rw_metropolis(pi_density, T, init=0, sigma=1)
-    xvec = Array(Float64, T)
+    xvec = Vector{Float64}(undef, T)
     xvec[1] = init
     for t in 1:(T - 1)
         x = xvec[t]

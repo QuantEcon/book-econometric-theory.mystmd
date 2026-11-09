@@ -9,11 +9,7 @@ The level of the text is calibrated towards the first year of graduate school—
 
 One aim in writing the text was to link core topics in econometrics and statistics, identifying unifying principles and common themes. For example, the orthogonal projection theorem bestrides much of the technical material, from least squares to conditional expectation, while the concept of empirical risk minimization ties together most of our estimation theory. Another aim was to blend traditional econometrics with some of the theoretical ideas emanating from the data science and statistical learning communities.
 
-I have emphasized the value of modern programming tools not only for data analysis but also for studying econometric theory. I'm certain that the best way to understand a result in econometric theory is to first work through the proof and then run a simulation that shows the theory in action. Sample code is provided in a mix of three programming languages: Julia, Python, and `R`. Python and `R` are the heavyweights of data science, and their popularity is now spilling over to econometrics. Julia is a new language for scientific programming with much to recommend it. All three are fun, high productivity languages. All three are open source. You can find the code for this course at
-
-`johnstachurski.net/emet`
-
-Programs are organized into Jupyter notebooks, including many figures along with the code listings.
+I have emphasized the value of modern programming tools not only for data analysis but also for studying econometric theory. I'm certain that the best way to understand a result in econometric theory is to first work through the proof and then run a simulation that shows the theory in action. Sample code is provided in a mix of three programming languages: Julia, Python, and `R`. Python and `R` are the heavyweights of data science, and their popularity is now spilling over to econometrics. Julia is a new language for scientific programming with much to recommend it. All three are fun, high productivity languages. All three are open source.
 
 Note that this text is not an encyclopedic treatment, nor a reference manual. I have tried to keep the book concise—suitable for a one semester course rather than anything longer. As a result, many well known econometric methods have been omitted or given only cursory treatments. As such, this book is intended as a complement or companion to the existing graduate level econometrics texts, most of which are cited in what follows.
 

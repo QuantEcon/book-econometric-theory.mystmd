@@ -670,10 +670,10 @@ Simulated unemployment dynamics
 ```{code-block} julia
 :caption: DF test applied to a nonlinear time series (Julia)
 :name: list-unit_root
-N = 100           # Length of time series
-alpha = 0.05      # Size of test
-critical = -13.7  # Critical value for DF test of size 0.05
-srand(123)        # Set random seed
+using LinearAlgebra, Random, Statistics
+N, alpha = 100, 0.05  # Length of time series, size of test
+critical = -13.7      # Critical value for DF test of size 0.05
+Random.seed!(123)     # Set random seed
 
 function h(x, a=0.0, k=22, b=.16, q=0.6, m=10)
     return a + (k - a) / ((1 + q * exp(-b * (x - m)))^(1/q))
@@ -682,14 +682,14 @@ end
 function dickey_fuller_stat(y)
     y1 = y[1:end-1]
     y2 = y[2:end]
-    z2 = y2 - mean(y2)
-    z1 = y1 - mean(y1)
+    z2 = y2 .- mean(y2)
+    z1 = y1 .- mean(y1)
     rho = dot(z1, z2) / dot(z1, z1) 
     return length(y1) * (rho - 1)
 end
 
 function sim_dgp(N) 
-    y = Array(Float64, N)
+    y = Vector{Float64}(undef, N)
     y[1] = 8  # Initial value of unemployment rate
     for i in 1:N-1
         y[i+1] = h(y[i]) + 0.5 * randn()
@@ -701,7 +701,7 @@ M = 5000
 rejections = 0
 for m in 1:M
     y = sim_dgp(N)
-    rejections += (dickey_fuller_stat(y) < critical)
+    global rejections += (dickey_fuller_stat(y) < critical)
 end
 println("Fraction under critical value: ", rejections / M)
 ```

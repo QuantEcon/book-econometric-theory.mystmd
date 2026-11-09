@@ -234,7 +234,7 @@ Given sample $x_1, \ldots, x_N$, let $y_n$ be the $n$th largest observation of t
 
 
 ``` julia
-julia> median([1, 3, 5])
+julia> using Statistics; median([1, 3, 5])
 3.0
 julia> median([2, 4, 6, 8])
 5.0

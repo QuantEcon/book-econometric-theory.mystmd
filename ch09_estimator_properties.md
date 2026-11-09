@@ -227,8 +227,8 @@ Using the definition of the empirical distribution, drawing samples from $\hat P
 :name: list-jboot
 function bootstrap(xo, stat, M)
     N = length(xo)
-    T_b = Array(Float64, M)
-    x_b = Array(Float64, N)
+    T_b = Vector{Float64}(undef, M)
+    x_b = Vector{Float64}(undef, N)
     for m in 1:M
         for i in 1:N
             x_b[i] = xo[rand(1:N)]
@@ -243,10 +243,10 @@ Here's an example function call:
 
 ``` julia
 julia> bootstrap([1, 2, 3], mean, 3)
-3-element Array{Float64,1}:
-1.66667
-1.0    
-1.66667
+3-element Vector{Float64}:
+ 1.6666666666666667
+ 1.0
+ 1.6666666666666667
 ```
 
 Here is the same routine in Python:

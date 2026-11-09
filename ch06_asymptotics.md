@@ -216,7 +216,7 @@ To illustrate the law of large numbers, consider flipping a coin until 10 heads 
 :caption: Illustrates the LLN (Julia)
 :name: list-nebisi
 num_reps = 10^6
-outcomes = Array(Float64, num_reps)
+outcomes = Vector{Float64}(undef, num_reps)
 
 for i in 1:num_reps
     num_tails = num_heads = 0
@@ -228,7 +228,7 @@ for i in 1:num_reps
     outcomes[i] = num_tails
 end
 
-println(mean(outcomes))
+println(sum(outcomes) / num_reps)
 ```
 
 {numref}`f-cauchy_samples` shows what can happen when the finite first moment condition in the LLN is not enforced. The draws are from the standard Cauchy distribution, which fails to have a finite first moment. The top panel shows observations and the bottom shows a running sample mean of observations $\bar x_N$, with $N$ on the horizontal axis. A few extreme observations dominate the average and the sample mean does not converge.[^2]

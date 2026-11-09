@@ -167,8 +167,8 @@ While we can compute $\hboldbeta$ and $\hat \sigma^2$ directly using the express
 First we import some Python libraries often used for statistics:
 
 ``` python
-import pandas as pd
-import statsmodels.formula.api as smf
+from numpy import log  # used in the formula below
+import pandas as pd, statsmodels.formula.api as smf
 ```
 
 Then we read in the data to a `pandas DataFrame` from a local CSV file:
@@ -1097,7 +1097,7 @@ for j in range(num_reps):
     x_vec = x[:-1]  # x_0, ..., x_{N-1}
     betahat_obs[j]  = np.sum(x_vec * y) / np.sum(x_vec**2)
 
-plt.hist(betahat_obs, bins=50, alpha=0.6, normed=True)
+plt.hist(betahat_obs, bins=50, alpha=0.6, density=True)
 plt.show()
 ```
 
